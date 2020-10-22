@@ -8,7 +8,7 @@ class BoxCon extends React.Component {
     render() {
         return(
             <Box handleClick={this.props.loadData} draws={this.props.draws}>
-                <h1>{this.props.drawNumber}</h1>
+                
             </Box>
         )
     }
