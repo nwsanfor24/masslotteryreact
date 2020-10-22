@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions/postActions';
-import { DataGrid } from '@material-ui/data-grid';
 
 class Table extends Component {
     componentWillMount() {
@@ -23,7 +22,7 @@ class Table extends Component {
 
     renderTableData() {
         this.getInitialState();
-        return this.state.rest.map(post => {
+        return this.props.rest.map(post => {
             const { id, draws, drawNumber, bonus, drawDate, winningNumbers } = post
             return (
                 <tr key={id}>
@@ -38,15 +37,15 @@ class Table extends Component {
         })
     }
 
-    renderTableHeader() {
-        const header = Object.keys({ 'key': this.props.posts[0] })
-        if (window.UndefinedVariable) {
-            Object.assign(window.UndefinedVariable, {})
-        }
-        return header.map((key, index) => {
-            return <th key={index}>{key.toUpperCase()}</th>
-        })
-    }
+    // renderTableHeader() {
+    //     const header = Object.keys({ 'key': this.props.posts[0] })
+    //     if (window.UndefinedVariable) {
+    //         Object.assign(window.UndefinedVariable, {})
+    //     }
+    //     return header.map((key, index) => {
+    //         return <th key={index}>{key.toUpperCase()}</th>
+    //     })
+    // }
 
     render() {
         return (
@@ -54,7 +53,7 @@ class Table extends Component {
                 <h1>Posts</h1>
                 <table id='posts'>
                     <tbody>
-                        <tr>{this.renderTableHeader()}</tr>
+                        {/* <tr>{this.renderTableHeader()}</tr> */}
                         {this.renderTableData()}
                     </tbody>
                 </table>
@@ -69,10 +68,14 @@ Table.propTypes = {
     newPost: PropTypes.object
 };
 
-const mapStateToProps = state => ({
-    posts: state.props.items,
-    newPost: state.props.item
-});
+// const mapStateToProps = state => ({
+//     posts: state.props.items,
+//     newPost: state.props.item
+// });
+
+const mapStateToProps=(state)=>{
+    return state
+};
 
 
 export default connect(mapStateToProps, { fetchPosts })(Table);

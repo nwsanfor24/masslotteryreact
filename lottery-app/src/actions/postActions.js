@@ -11,17 +11,17 @@ export const fetchPosts = () => dispatch => {
 
 
 
-// export const createPost = (postData) => dispatch => {
-//     fetch('https://www.masslottery.com/rest/keno/getDrawsByDateRange?startDate=2020-09-18&endDate=2020-09-18', {
-//             method: 'POST',
-//             headers: {
-//                 'content-type': 'application/json'
-//             },
-//             body: JSON.stringify(postData)
-//         })
-//         .then(res => res.json())
-//         .then(post => dispatch({
-//             type: NEW_POST,
-//             payload: post
-//         }));  
-// }
+export const createPost = (postData) => dispatch => {
+    fetch('https://www.masslottery.com/rest/keno/getDrawsByDateRange?startDate=2020-09-18&endDate=2020-09-18', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(postData)
+        })
+        .then(res => res.json())
+        .then(post => dispatch({
+            type: NEW_POST,
+            payload: post
+        }));  
+}
