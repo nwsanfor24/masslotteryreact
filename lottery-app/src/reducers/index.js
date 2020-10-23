@@ -2,7 +2,7 @@ let defaultState = {
     draws: "draws"
 }
 
-const mainReducer = (state = defaultState, action) => {
+const mainReducer = (state=defaultState, action) => {
     if (action.type === "CHANGE_DATA") {
         return {
             ...state,

@@ -1,15 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from "../actions/index";
-import Box from '../components/box.js';
+import MUIDataTable from "mui-datatables";
+// import Box from '../components/box.js';
 
 
 class BoxCon extends React.Component {
     render() {
-        return(
-            <Box handleClick={this.props.loadData} draws={this.props.draws}>
-                
-            </Box>
+        const columns = ["Draw", "Draw Number", "Bonus", "Draw Date", "Winning Numbers"];
+
+        const data = [];
+
+        const options = {
+            filter: true,
+            pageLength: 10,
+            filterType: 'dropdown',
+            responsive: 'stacked'
+        };
+
+        return (
+            <MUIDataTable
+                title={"Massachusetts Lottery"}
+                data={data}
+                columns={columns}
+                options={options}
+            />
         )
     }
 }

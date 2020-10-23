@@ -21,9 +21,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="App">
-          <BoxCon>
-
-          </BoxCon>
+          <BoxCon />
         </div>
       </Provider>
     );
